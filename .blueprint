@@ -1,0 +1,25 @@
+created:
+    - database/factories/KategoriFactory.php
+    - database/factories/BukuFactory.php
+    - database/factories/PinjamFactory.php
+    - database/factories/UlasanFactory.php
+    - database/factories/KoleksiPribadiFactory.php
+    - database/migrations/2024_03_05_040512_create_kategoris_table.php
+    - database/migrations/2024_03_05_040513_create_bukus_table.php
+    - database/migrations/2024_03_05_040514_create_pinjams_table.php
+    - database/migrations/2024_03_05_040515_create_ulasans_table.php
+    - database/migrations/2024_03_05_040516_create_koleksi_pribadis_table.php
+    - app/Models/Kategori.php
+    - app/Models/Buku.php
+    - app/Models/Pinjam.php
+    - app/Models/Ulasan.php
+    - app/Models/KoleksiPribadi.php
+    - database/seeders/KategoriSeeder.php
+    - database/seeders/BukuSeeder.php
+models:
+    User: { name: string, email: string, email_verified_at: 'datetime nullable', password: string, role: 'string default:user', remember_token: 'string:100 nullable' }
+    Kategori: { name: string }
+    Buku: { judul: string, kategori_id: foreign, penulis: string, penerbit: string, tahun_terbit: integer, stok: integer }
+    Pinjam: { buku_id: foreign, user_id: foreign, tgl_pinjam: timestamp, tgl_kembali: timestamp, amount: integer, status: 'enum:dipinjam,dikembalikan' }
+    Ulasan: { buku_id: foreign, user_id: foreign, ulasan: longtext, rating: integer }
+    KoleksiPribadi: { buku_id: foreign, user_id: foreign }

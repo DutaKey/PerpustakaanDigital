@@ -1,0 +1,31 @@
+models:
+  Kategori:
+    name: string
+
+  Buku:
+    judul: string
+    kategori_id: foreign
+    penulis: string
+    penerbit: string
+    tahun_terbit: integer
+    stok: integer
+
+  Pinjam:
+    buku_id: foreign
+    user_id: foreign
+    tgl_pinjam: timestamp
+    tgl_kembali: timestamp
+    amount: integer
+    status: enum:dipinjam,dikembalikan
+
+  Ulasan:
+    buku_id: foreign
+    user_id: foreign
+    ulasan: longtext
+    rating: integer
+
+  KoleksiPribadi:
+    buku_id: foreign
+    user_id: foreign
+
+seeders: Kategori, Buku
